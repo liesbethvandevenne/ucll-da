@@ -6,13 +6,12 @@ import org.ucll.da.service.WeatherService;
 
 public class Controller {
 	
-	@Autowired
 	private WeatherService service;
 	private View view;
 	
 	public Controller(){
 		view = new View();
-		//service = new WeatherService();
+		service = new WeatherService();
 	}
 	
 	public void start(){

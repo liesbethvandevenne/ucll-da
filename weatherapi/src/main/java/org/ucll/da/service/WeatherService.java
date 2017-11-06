@@ -4,18 +4,17 @@ import java.util.List;
 import java.util.function.Predicate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.ucll.da.entities.City;
 import org.ucll.da.entities.WeatherData;
 
-@Service
 public class WeatherService {
 
 	private WeatherDataRequestService weatherDataRequest;
 	private WeatherDatabaseService weatherDatabase;
 	//private CityDatabaseService cities;
 	
-	@Autowired
 	public WeatherService(){
 		weatherDataRequest = new WeatherDataRequestService();
 		weatherDatabase = new WeatherDatabaseService();
