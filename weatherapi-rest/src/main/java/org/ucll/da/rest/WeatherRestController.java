@@ -12,9 +12,11 @@ import org.ucll.da.service.WeatherService;
 @EnableAutoConfiguration
 public class WeatherRestController {
 
-	@Autowired
 	private WeatherService service;
 	
+	public WeatherRestController() {
+		service = new WeatherService();
+	}
 	
     @RequestMapping("/currentweather")
     public WeatherData current(@RequestParam(value="name") String name) {
