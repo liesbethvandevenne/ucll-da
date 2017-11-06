@@ -29,15 +29,5 @@ public class WeatherDataFetchScheduler {
 	@Scheduled(cron = "* * 0,3,6,9,12,15,18,21 * * *")
     public void requestCurrent() {
         service.save(service.requestCurrentCondition("tienen"));
-    }
-    
-	/*
-    @Bean
-    public TaskScheduler poolScheduler() {
-        ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
-        scheduler.setThreadNamePrefix("poolScheduler");
-        scheduler.setPoolSize(10);
-        return scheduler;
-    }*/
-	
+    }    
 }
