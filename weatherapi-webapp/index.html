@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Javascript - overview</title>
+
+<script src="jquery-3.2.1.min.js"></script>
+
+</head>
+<body>
+<h1>Weather Request</h1>
+
+<div id="content">
+</div>
+
+<script>
+$().ready( function(){
+        $.getJSON("http://localhost:8888/weatherforecast?name=nieuwerkerken", function(data){
+                $(data).each(function(key, item){
+                        var output = item.toString();
+                        $("#content").append("<p> test"+output+"</p>");
+                });
+        });
+});
+</script>
+
+</body>
+</html>
