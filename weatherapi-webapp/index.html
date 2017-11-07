@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Javascript - overview</title>
+<title>Weather Forecast</title>
 
 <script src="jquery-3.2.1.min.js"></script>
 
@@ -10,18 +10,58 @@
 <body>
 <h1>Weather Request</h1>
 
+<div id="input">
+<input type="text" id="city">
+<button id="button">Get forecast</button>
+</div>
+
 <div id="content">
 </div>
 
 <script>
-$().ready( function(){
-        $.getJSON("http://localhost:8888/weatherforecast?name=nieuwerkerken", function(data){
+
+$('#button').click( function(){
+				$('#content').empty();	
+				var inputCity = $('#city').val();
+				$('#city').val("");
+				if(inputCity){
+		        $.getJSON("http://localhost:8888/weatherforecast?name=" + inputCity, function(data){
                 $(data).each(function(key, item){
-                        var output = item.toString();
-                        $("#content").append("<p> test"+output+"</p>");
+										printJson(item);
                 });
-        });
+        		});
+				}else{
+						printError();
+				}
 });
+
+function printJson(json){
+	var cityText = "The forecast for " + json['city'].name + " is:";
+	$('<p>', { 
+        text: cityText
+    }).appendTo('#content');
+
+	for(var i = 0; i < json['forecast'].length; i++){
+		var obj = json['forecast'][i];
+		var forecastText = obj.dt_txt + ": ";
+		forecastText += " Average temperature: " + (obj.main.temp - 273.15).toFixed(2);
+		forecastText += " Humidity: " + obj.main.humidity;
+		forecastText += " Sky: " + obj.weather[0].description;
+		
+		$('<p>', {  
+        text: forecastText
+    }).appendTo('#content');
+	}
+
+};
+
+function printError(){
+	$('<p>', {
+		text: "This city can not be found."
+	}).appendTo('#content');
+};
+
+
 </script>
 
 </body>
