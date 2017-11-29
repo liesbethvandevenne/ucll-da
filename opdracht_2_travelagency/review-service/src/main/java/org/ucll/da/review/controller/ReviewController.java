@@ -28,7 +28,7 @@ public class ReviewController {
 		return this.discoveryClient.getInstances(applicationName);
 	}
 	
-	@RequestMapping("/review/author/{name}")
+	@RequestMapping("/review/author/{author}")
 	public List<Review> getByAuthor(@PathVariable String author) {
 		return this.service.get(r -> r.getAuthor().equals(author));
 	}
