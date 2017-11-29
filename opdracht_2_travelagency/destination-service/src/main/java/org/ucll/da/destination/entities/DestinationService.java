@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-import org.ucll.da.destination.Destination;
-
 public class DestinationService {
 	
 	private List<Destination> destinations;
@@ -18,6 +16,10 @@ public class DestinationService {
 	
 	public List<Destination> get(Predicate<Destination> test){
 		return destinations.stream().filter(test).collect(Collectors.toList());
+	}
+	
+	public void add(Destination destination){
+		this.destinations.add(destination);
 	}
 
 	private void init() {
