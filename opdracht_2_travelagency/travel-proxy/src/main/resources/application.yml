@@ -1,0 +1,15 @@
+zuul:
+  ignored-services: "*"
+  routes:
+    composite:
+      path: /view/**
+
+server:
+  port: 8765
+
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    instance-id: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+  client:
+    registry-fetch-interval-seconds: 5
