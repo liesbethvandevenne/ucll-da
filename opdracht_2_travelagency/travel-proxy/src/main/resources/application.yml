@@ -2,7 +2,7 @@ zuul:
   ignored-services: "*"
   routes:
     composite:
-      path: /view/**
+      path: /travel/**
 
 server:
   port: 8765

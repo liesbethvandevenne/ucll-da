@@ -5,7 +5,7 @@
 	<artifactId>travel-server</artifactId>
 	<packaging>jar</packaging>
 	<version>1</version>
-	<name>discovery-server</name>
+	<name>travel-server</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
