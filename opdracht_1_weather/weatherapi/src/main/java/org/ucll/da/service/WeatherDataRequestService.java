@@ -39,4 +39,16 @@ public class WeatherDataRequestService {
     	
     	return forecast;
     }
+    
+    public WeatherData getForecast(long zipCode){
+    	RestTemplate restTemplate = new RestTemplate();
+    	ResponseEntity<String> response = restTemplate.getForEntity(
+    			"http://api.openweathermap.org/data/2.5/forecast?q={zipCode},be&cnt=5&appid=88d056b4bd8a4b55d4b5c80bdc3e8cc8"
+    			, String.class
+    			, zipCode );
+    	
+    	WeatherData forecast = new Gson().fromJson(response.getBody(), WeatherForecast.class);
+    	
+    	return forecast;
+    }
 }

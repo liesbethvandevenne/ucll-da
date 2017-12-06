@@ -1,12 +1,5 @@
 package org.ucll.da.service;
 
-import java.util.List;
-import java.util.function.Predicate;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
-import org.ucll.da.entities.City;
 import org.ucll.da.entities.WeatherData;
 
 public class WeatherService {
@@ -23,6 +16,10 @@ public class WeatherService {
 	
 	public WeatherData requestForecast(String city){
 		return weatherDataRequest.getForecast(city);
+	}
+
+	public WeatherData requestForecast(long zipCode){
+		return weatherDataRequest.getForecast(zipCode);
 	}
 	
 	public WeatherData requestCurrentCondition(String city){

@@ -1,7 +1,7 @@
 zuul:
   ignored-services: "*"
   routes:
-    composite:
+    travel-service:
       path: /travel/**
 
 server:

@@ -32,18 +32,10 @@ public class WeatherServiceTest {
 		assertTrue( data.getCity().getName().equalsIgnoreCase( city ) );
 	}
 	
-	public void requestCurrentCondition_works(){
-		String city = "nieuwerkerken,be";
-		String cityName = "Nieuwerkerken";
-		WeatherService service = new WeatherService();
-		WeatherData data = service.requestCurrentCondition(city);
-		assertTrue( data.getCity() != null );
-		assertEquals( data.getCity().getName(), cityName );
-	}
 	
 	@Test
 	public void save_noException(){
-		String city = "nieuwerkerken,be";
+		String city = "nieuwerkerken";
 		WeatherService service = new WeatherService();
 		WeatherData data = service.requestForecast(city);
 		service.save(data);

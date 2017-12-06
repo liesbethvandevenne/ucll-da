@@ -21,6 +21,10 @@ public class DestinationController {
 	@Autowired
 	private DiscoveryClient discoveryClient;
 	private DestinationService service;
+	
+	public DestinationController(){
+		service = new DestinationService();
+	}
 
 	@RequestMapping("/service-instances/{applicationName}")
 	public List<ServiceInstance> serviceInstancesByApplicationName(
@@ -34,7 +38,7 @@ public class DestinationController {
 	}
 	
 	@RequestMapping("/destination/id/{id}")
-	public Destination getById(@PathVariable String id) {
+	public Destination getById(@PathVariable("id") String id) {
 		long parsedId = Long.parseLong(id);
 		Destination destination = this.service.get(d -> d.getId() == parsedId).get(0);
 		return destination;
@@ -50,4 +54,10 @@ public class DestinationController {
     	service.add(destination);
     	return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+    
+    @RequestMapping("/destination/get/name/{zip}")
+	public String getNameByZip(@PathVariable String zip) {
+    	long parsedZip = Long.parseLong(zip);
+		return this.service.get(d -> d.getId() == parsedZip).get(0).getName();
+	}
 }
