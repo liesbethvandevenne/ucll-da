@@ -11,24 +11,20 @@ import com.google.gson.Gson;
 
 public class TravelService {
 	
-	@LoadBalanced
-	//@Autowired
+	//@LoadBalanced
+	@Autowired
 	private RestTemplate restTemplate;
-	
+		
 	public TravelService(){}
-	
-	/*@Bean
-	private RestTemplate restTemplate(){
-		return new RestTemplate();
-	}*/
-	
+		
 	public TravelInfo getTravelInfo(String zip){
 		TravelInfo info = new TravelInfo();
-		restTemplate = new RestTemplate();
+		//restTemplate = new RestTemplate();
 		
 		//destination
 		String url = String.format("http://destination-service/destination/id/%s", zip);
-		info.setDestination(this.restTemplate.getForObject(url, String.class));
+		String response = this.restTemplate.getForObject(url, String.class);
+		info.setDestination(response);
 	
 		//destinationname
 		//url = String.format("http://destination-service/get/name/%s", zip);

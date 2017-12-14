@@ -7,24 +7,3 @@ eureka:
     instance-id: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
   client:
     registry-fetch-interval-seconds: 5
-    
-weather-service:
-  ribbon:
-    eureka:
-      enabled: true
-    ReadTimeout: 60000
-    ServerListRefreshInterval: 15000
-
-destination-service:
-  ribbon:
-    eureka:
-      enabled: true
-    ReadTimeout: 60000
-    ServerListRefreshInterval: 15000
-
-review-service:
-  ribbon:
-    eureka:
-      enabled: true
-    ReadTimeout: 60000
-    ServerListRefreshInterval: 15000

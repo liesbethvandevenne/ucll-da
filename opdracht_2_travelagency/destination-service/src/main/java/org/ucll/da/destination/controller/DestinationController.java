@@ -20,10 +20,11 @@ public class DestinationController {
 
 	@Autowired
 	private DiscoveryClient discoveryClient;
+	@Autowired
 	private DestinationService service;
 	
 	public DestinationController(){
-		service = new DestinationService();
+		//service = new DestinationService();
 	}
 
 	@RequestMapping("/service-instances/{applicationName}")
@@ -41,6 +42,10 @@ public class DestinationController {
 	public Destination getById(@PathVariable("id") String id) {
 		long parsedId = Long.parseLong(id);
 		Destination destination = this.service.get(d -> d.getId() == parsedId).get(0);
+		if(destination == null){
+			destination = new Destination();
+			destination.setName("destination not found");
+		}
 		return destination;
 	}
 	
