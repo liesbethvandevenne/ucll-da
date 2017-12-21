@@ -15,7 +15,7 @@ public class ReviewService {
 	}
 	
 	public List<Review> get(Predicate<Review> test){
-		return (List<Review>) reviews.stream().filter(test).collect(Collectors.toList());
+		return reviews.stream().filter(test).collect(Collectors.toList());
 	}
 	
 	public void add(Review review){
@@ -29,5 +29,7 @@ public class ReviewService {
 		r1.setTitle("Rustig dorp.");
 		r1.setReview("Nieuwerkerken is een rustig dorp. Gelegen tussen bossen, plantages en velden.");
 		r1.setAuthor("Liesbeth Vandevenne");
+		
+		reviews.add(r1);
 	}
 }

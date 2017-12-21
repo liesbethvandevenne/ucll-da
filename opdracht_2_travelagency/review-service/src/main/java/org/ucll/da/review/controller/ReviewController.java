@@ -20,6 +20,7 @@ public class ReviewController {
 
 	@Autowired
 	private DiscoveryClient discoveryClient;
+	@Autowired
 	private ReviewService service;
 
 	@RequestMapping("/service-instances/{applicationName}")

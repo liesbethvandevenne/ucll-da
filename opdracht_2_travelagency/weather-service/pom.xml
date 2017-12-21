@@ -7,11 +7,10 @@
   <version>1</version>
   <name>weather-service</name>
 
-  
-  <parent>
+<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.2.RELEASE</version>
+		<version>1.5.9.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
@@ -26,7 +25,7 @@
 			<artifactId>weatherapi-model</artifactId>
 			<version>1</version>
 		</dependency>
-		
+	
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka</artifactId>
@@ -49,7 +48,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Camden.SR5</version>
+				<version>Edgware.RELEASE</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -64,6 +63,6 @@
 			</plugin>
 		</plugins>
 	</build>
+
+
 </project>
-  
-  

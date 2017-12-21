@@ -6,8 +6,8 @@
   <packaging>jar</packaging>
   <version>1</version>
   <name>travel-proxy</name>
- 
- <parent>
+  
+    <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.5.2.RELEASE</version>
@@ -34,7 +34,8 @@
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
             <scope>test</scope>
         </dependency>
-       
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-zuul -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-zuul -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-zuul</artifactId>
@@ -62,4 +63,7 @@
             </plugin>
         </plugins>
     </build>
+
+
 </project>
+

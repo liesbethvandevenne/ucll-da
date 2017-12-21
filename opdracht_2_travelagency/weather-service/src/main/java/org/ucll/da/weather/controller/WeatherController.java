@@ -16,12 +16,12 @@ public class WeatherController {
 
 	@Autowired
 	private DiscoveryClient discoveryClient;
+	@Autowired
 	private WeatherService service;
 
-	@RequestMapping("/service-instances/{applicationName}")
-	public List<ServiceInstance> serviceInstancesByApplicationName(
-			@PathVariable String applicationName) {
-		return this.discoveryClient.getInstances(applicationName);
+	@RequestMapping("/")
+	public String runs() {
+		return "Up and running";
 	}
 	
 	@RequestMapping("/weather/currentcondition/{city}")

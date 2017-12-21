@@ -19,7 +19,6 @@ public class TravelService {
 		
 	public TravelInfo getTravelInfo(String zip){
 		TravelInfo info = new TravelInfo();
-		//restTemplate = new RestTemplate();
 		
 		//destination
 		String url = String.format("http://destination-service/destination/id/%s", zip);
@@ -27,18 +26,18 @@ public class TravelService {
 		info.setDestination(response);
 	
 		//destinationname
-		//url = String.format("http://destination-service/get/name/%s", zip);
-		//String json = this.restTemplate.getForObject(url, String.class);
-		//Gson gson = new Gson();
-		//String destinationName = gson.fromJson(json, String.class);
+		url = String.format("http://destination-service/destination/get/name/%s", zip);
+		String city = this.restTemplate.getForObject(url, String.class);
+		
 		
 		//review
-		url = String.format("http://review-service/review/destination/%s", zip);
-		info.setReview("Gezellige boel" /*this.restTemplate.getForObject(url, String.class)*/ );
+		url = String.format("http://review-service/review/id/%s", zip);
+		response = this.restTemplate.getForObject("http://review-service/review/id/1", String.class);
+		info.setReview(response);
 		
 		//weather
-		//url = String.format("http://weather-service/forecast/%s", destinationName);
-		info.setWeather("Regen met zonnebuien" /*this.restTemplate.getForObject(url, String.class) */);
+		url = String.format("http://weather-service/weather/forecast/%s", city);
+		info.setWeather(this.restTemplate.getForObject(url, String.class));
 		
 		return info;
 	}
