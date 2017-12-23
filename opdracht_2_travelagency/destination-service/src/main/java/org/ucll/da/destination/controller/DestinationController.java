@@ -22,20 +22,15 @@ public class DestinationController {
 	private DiscoveryClient discoveryClient;
 	@Autowired
 	private DestinationService service;
-	
-	public DestinationController(){
-		//service = new DestinationService();
-	}
-
-	@RequestMapping("/service-instances/{applicationName}")
-	public List<ServiceInstance> serviceInstancesByApplicationName(
-			@PathVariable String applicationName) {
-		return this.discoveryClient.getInstances(applicationName);
-	}
-	
+		
 	@RequestMapping("/destination/name/{name}")
 	public List<Destination> getByName(@PathVariable String name) {
 		return this.service.get(d -> d.getName().equals(name));
+	}
+	
+	@RequestMapping("/destination/all")
+	public List<Destination> getAll() {
+		return this.service.get(d -> d.getId() != -1);
 	}
 	
 	@RequestMapping("/destination/id/{id}")

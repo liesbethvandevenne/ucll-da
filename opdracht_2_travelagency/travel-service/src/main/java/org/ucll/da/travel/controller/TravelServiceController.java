@@ -12,14 +12,15 @@ public class TravelServiceController {
 
 	@Autowired
 	private TravelService service;
-	
-	public TravelServiceController(){
-		//service = new TravelService();
-	}
-		
+				
 	@RequestMapping("/info/{zip}")
 	public TravelInfo getInfo(@PathVariable("zip") String zip) {
 		return service.getTravelInfo(zip);
+	}
+	
+	@RequestMapping("/destinations")
+	public String getDestinations() {
+		return service.getDestinations();
 	}
 
 	@RequestMapping("/")

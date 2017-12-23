@@ -42,4 +42,11 @@ public class TravelService {
 		return info;
 	}
 
+	public String getDestinations() {
+		//destinationname
+		String url = "http://destination-service/destination/all";
+		String json = this.restTemplate.getForObject(url, String.class);
+		return json;
+	}
+
 }

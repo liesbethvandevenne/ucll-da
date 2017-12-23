@@ -28,17 +28,18 @@ public class DestinationService {
 		d1.setName("Nieuwerkerken");
 		d1.setCountry("België");
 		destinations.add(d1);
-		
+
 		Destination d2 = new Destination();
-		d2.setId(2);
-		d2.setName("Brussel");
-		d2.setCountry("België");
-		destinations.add(d2);
-		
-		Destination d3 = new Destination();
 		d2.setId(3);
 		d2.setName("Diest");
 		d2.setCountry("België");
-		destinations.add(d3);
+		destinations.add(d2);
+		
+		Destination d = new Destination();
+		d.setId(2);
+		d.setName("Brussel");
+		d.setCountry("België");
+		destinations.add(d);
+		
 	}
 }
